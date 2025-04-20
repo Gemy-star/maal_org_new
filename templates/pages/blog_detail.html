@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <!-- تفاصيل المدونة -->
+        <div class="blog-detail">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-detail-main">
+                            <div class="blog-detail-main-heading">
+                                <!-- عرض الفئة -->
+                                <ul class="tags-lists justify-content-center">
+                                    {% if blog.category %}
+                                    <li>
+                                        <a href="#" class="tags-item">{{ blog.category.name }}</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                <!-- عنوان المدونة -->
+                                <div class="title">{{ blog.title }}</div>
+                                <!-- معلومات المدونة: التاريخ -->
+                                <div class="meta">تم النشر في <span>{{ blog.date|date:"M d, Y" }}</span></div>
+                            </div>
+
+                            <!-- محتوى المدونة -->
+                            <div class="desc">
+                                {{ blog.content|linebreaksbr }}
+                            </div>
+
+                            <div class="bot d-flex justify-content-between flex-wrap align-items-center">
+                                <!-- عرض الفئة فقط -->
+                                {% if blog.category %}
+                                <ul class="tags-lists">
+                                    <li>
+                                        <a href="#" class="tags-item"><span>{{ blog.category.name }}</span></a>
+                                    </li>
+                                </ul>
+                                {% endif %}
+                            </div>
+
+                            <!-- التنقل إلى المقالات السابقة/التالي (إذا كان متاحًا) -->
+                            <div class="tf-article-navigation">
+                                <div class="item position-relative d-flex w-100 prev">
+                                    {% if previous_blog %}
+                                    <a href="{% url 'blog_detail' previous_blog.id %}" class="icon">
+                                        <i class="icon-arrow-left"></i>
+                                    </a>
+                                    <div class="inner">
+                                        <a href="{% url 'blog_detail' previous_blog.id %}">السابق</a>
+                                        <h6>
+                                            <a href="{% url 'blog_detail' previous_blog.id %}">{{ previous_blog.title }}</a>
+                                        </h6>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="item position-relative d-flex w-100 justify-content-end next">
+                                    {% if next_blog %}
+                                    <div class="inner text-end">
+                                        <a href="{% url 'blog_detail' next_blog.id %}">التالي</a>
+                                        <h6>
+                                            <a href="{% url 'blog_detail' next_blog.id %}">{{ next_blog.title }}</a>
+                                        </h6>
+                                    </div>
+                                    <a href="{% url 'blog_detail' next_blog.id %}" class="icon">
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}
