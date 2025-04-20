@@ -1,0 +1,53 @@
+{% load static %}
+<!-- المدونات -->
+<section class="flat-spacing-24 flat-testimonial flat-testimonial-bg-1">
+    <div class="container">
+        <div class="flat-title wow fadeInUp" data-wow-delay="0s">
+            <span class="title text-white">آخر المقالات</span>
+        </div>
+        <div class="wrap-carousel">
+            <div class="swiper tf-sw-testimonial" data-preview="3" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="15">
+                <div class="swiper-wrapper">
+                    {% for blog in blogs %}
+                    <div class="swiper-slide">
+                        <div class="testimonial-item style-column wow fadeInUp bg_white rounded-0" data-wow-delay="0s">
+                            <div class="rating">
+                                {% for _ in "★★★★★" %}
+                                    <i class="icon-start"></i>
+                                {% endfor %}
+                            </div>
+                            <div class="heading">{{ blog.title }}</div>
+                            <div class="text">
+                                {{ blog.content|truncatewords:20 }}...
+                            </div>
+                            <div class="author">
+                                <div class="name">{{ blog.category.name }}</div>
+                                <div class="metas">{{ blog.date|date:"Y/m/d" }}</div>
+                            </div>
+                            <div class="product">
+                                <div class="image">
+                                    <a href="#">
+                                        <img class="lazyload" data-src="{% static 'images/item/lookbook-item-1.jpg' %}" src="{% static 'images/item/lookbook-item-1.jpg' %}" alt="blog">
+                                    </a>
+                                </div>
+                                <div class="content-wrap">
+                                    <div class="product-title">
+                                        <a href="#">اقرأ المزيد</a>
+                                    </div>
+                                    <div class="price">#مقال</div>
+                                </div>
+                                <a href="#" class=""><i class="icon-arrow1-top-left"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="nav-sw nav-next-slider nav-next-testimonial lg"><span class="icon icon-arrow-left"></span></div>
+            <div class="nav-sw nav-prev-slider nav-prev-testimonial lg"><span class="icon icon-arrow-right"></span></div>
+            <div class="sw-dots style-2 sw-pagination-testimonial justify-content-center"></div>
+        </div>
+    </div>
+</section>
+<!-- /المدونات -->
