@@ -1,39 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-        <!-- page-title -->
-        <div class="tf-page-title">
-            <div class="container-full">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="heading text-center">إتصل بنا</div>
-                        <ul class="breadcrumbs d-flex align-items-center justify-content-center">
-                            <li>
-                                <a href="{% url 'home_page' %}">الرئيسية</a>
-                            </li>
-                            <li>
-                                <i class="icon-arrow-right"></i>
-                            </li>
-                            <li>
-                                إتصل بنا
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /page-title -->
 
-        <!-- blog-list -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="blog-list-main">
-                        {% include 'partials/home/_contact.html' %}
-                    </div>
-                </div>
+{% block content %}
+<!-- page-title -->
+<div class="tf-page-title bg-black">
+    <div class="container-full">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading text-center link_kayan">إتصل بنا</div>
+                <ul class="breadcrumbs d-flex align-items-center justify-content-center">
+                    <li>
+                        <a href="{% url 'home_page' %}" class="link_kayan">الرئيسية</a>
+                    </li>
+                    <li>
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li>
+                        إتصل بنا
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- /blog-list -->
+    </div>
+</div>
+<!-- /page-title -->
+
+<!-- blog-list -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="blog-list-main">
+                {% include 'partials/home/_contact.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /blog-list -->
 
 {% endblock content %}

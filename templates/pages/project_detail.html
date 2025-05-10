@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- blog-detail -->
+<div class="blog-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blog-detail-main">
+                    <div class="blog-detail-main-heading">
+                        <!-- Optional tags (replace or extend based on your data model) -->
+                        <ul class="tags-lists justify-content-center">
+                            <li><a href="#" class="tags-item text-white">مشروع</a></li>
+                        </ul>
+
+                        <!-- Project Title -->
+                        <div class="title text-white">{{ project.title }}</div>
+
+                        <!-- Project Meta Info -->
+                        <div class="meta text-white">تم الانتهاء <span>{{ project.created_at|date:"M d, Y" }}</span></div>
+
+                        <!-- Main Project Image (first one if available) -->
+                        <div class="image">
+                            {% if project.images.all %}
+                                <img class="lazyload" data-src="{{ project.images.first.image_resized.url }}" src="{{ project.images.first.image_resized.url }}" alt="{{ project.title }}">
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Project Description -->
+                    <blockquote>
+                        <div class="icon">
+                            <img src="{% static 'images/item/quote.svg' %}" alt="">
+                        </div>
+                        <div class="text text-white">
+                            {{ project.description }}
+                        </div>
+                    </blockquote>
+
+                    <!-- Additional Project Images -->
+                    {% if project.images.count > 1 %}
+                        <div class="grid-image">
+                            {% for img in project.images.all|slice:"1:3" %}
+                                <div>
+                                    <img class="lazyload" data-src="{{ img.image_resized.url }}" src="{{ img.image_resized.url }}" alt="Project Image {{ forloop.counter }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-sidebar-mobile d-flex">
+    <button data-bs-toggle="offcanvas" data-bs-target="#sidebarmobile" aria-controls="offcanvasRight">
+        <i class="icon-open text-white"></i>
+    </button>
+</div>
+<!-- /blog-detail -->
+
+{% endblock %}

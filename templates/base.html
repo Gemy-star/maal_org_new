@@ -1,17 +1,18 @@
 {% load static %}
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>{% block title %} مال {% endblock %}</title>
+    <title>{% block title %} Kayan Construction {% endblock %}</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- font -->
     <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
     <!-- Icons -->
@@ -29,16 +30,18 @@
 </head>
 
 <body class="preload-wrapper color-primary-4">
-{% include 'partials/_loader.html' %}
-{% include 'partials/announcement_bar.html' %}
-{% include 'partials/_header.html' %}
-    <div id="wrapper">
-{% block content %} {% endblock %}
-    </div>
-{% include 'partials/_footer.html' %}
-{% include 'partials/_go_top.html' %}
+    {% include 'partials/_loader.html' %}
+    {% include 'partials/_header.html' %}
 
-  <!-- Javascript -->
+    <div id="wrapper">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include 'partials/_footer.html' %}
+    {% include 'partials/_go_top.html' %}
+    {% include 'partials/_mobile_menu.html' %}
+
+    <!-- Javascript -->
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/swiper-bundle.min.js' %}"></script>
@@ -51,5 +54,6 @@
     <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/multiple-modal.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    {% block js %}{% endblock %}
 </body>
 </html>

@@ -1,72 +1,39 @@
 {% load static %}
-<section class="flat-spacing-12" style="direction: rtl;">
+
+<section class="flat-spacing-12 pb_2" style="direction: rtl">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-md-6 mb-4">
-                <img class="img-fluid rounded" src="{% static 'images/blog/ksa-sea.jpg' %}" alt="collection-img">
+                <img class="img-fluid rounded" src="{% static 'images/slider/furniture-banner-collection.jpg' %}" alt="صورة تواصل">
             </div>
             <div class="col-md-6">
-                <h3 class="mb-4">تواصل معنا</h3>
+                <h3 class="mb-4 text-black">تواصل معنا</h3>
                 <form id="contactForm" method="post" novalidate>
                     {% csrf_token %}
+
                     <div class="mb-3">
-                        <input type="text" name="name" class="email" placeholder="الاسم">
+                        <input type="text" name="name" class="form-control" placeholder="الاسم">
                         <div class="invalid-feedback" id="error-name"></div>
                     </div>
+
                     <div class="mb-3">
-                        <input type="email" name="email" class="email" placeholder="البريد الإلكتروني">
+                        <input type="email" name="email" class="form-control" placeholder="البريد الإلكتروني">
                         <div class="invalid-feedback" id="error-email"></div>
                     </div>
+
                     <div class="mb-3">
-                        <input type="text" name="subject" class="email" placeholder="الموضوع">
-                        <div class="invalid-feedback" id="error-subject"></div>
-                    </div>
-                    <div class="mb-3">
-                        <textarea name="message" class="email" rows="5" placeholder="الرسالة"></textarea>
+                        <textarea name="message" rows="5" class="form-control" placeholder="رسالتك"></textarea>
                         <div class="invalid-feedback" id="error-message"></div>
                     </div>
-                    <button type="submit" class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn">إرسال</button>
+                    <div class="mb-3 d-flex justify-content-center">
+                            <button type="submit" class="btn link_kayan text-center bg-black">
+                        إرسال
+                    </button>
+                    </div>
+
+
                 </form>
             </div>
         </div>
     </div>
 </section>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
-
-    // Clear errors
-    ["name", "email", "subject", "message"].forEach(field => {
-        document.getElementById(`error-${field}`).innerText = "";
-        form[field].classList.remove("is-invalid");
-    });
-
-    try {
-        const response = await fetch("{% url 'submit_contact' %}", {
-            method: "POST",
-            headers: {
-                "X-CSRFToken": csrfToken
-            },
-            body: formData
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            alert("تم إرسال رسالتك بنجاح.");
-            form.reset();
-        } else {
-            Object.keys(data.errors).forEach(field => {
-                document.getElementById(`error-${field}`).innerText = data.errors[field];
-                form[field].classList.add("is-invalid");
-            });
-        }
-    } catch (error) {
-        alert("حدث خطأ في الاتصال بالخادم.");
-    }
-});
-</script>

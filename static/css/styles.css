@@ -225,7 +225,7 @@ html {
 }
 
 body {
-    font-family: "Tajawal", sans-serif !important;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -301,7 +301,7 @@ input[type=url],
 input[type=search],
 input[type=tel],
 input[type=color] {
-    font-family: "Tajawal", sans-serif;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
   border: 1px solid var(--line);
   outline: 0;
   -webkit-box-shadow: none;
@@ -405,7 +405,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Tajawal", sans-serif;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
   text-rendering: optimizeLegibility;
   color: var(--main);
   font-weight: 400;
@@ -851,6 +851,9 @@ video {
 
 .bg_e7e4df {
   background-color: #e7e4df !important;
+}
+.bg_e7edf {
+  background-color:var(--bg-5) !important;
 }
 
 .bg_f5f6f0 {
@@ -3217,7 +3220,7 @@ header.header-bg {
 }
 
 .flat-testimonial-bg-1 {
-  background-image: url(../images/blog/ksa.png);
+  background-image: url(../images/slider/009furniture-banner-11.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3879,7 +3882,17 @@ header.header-bg {
   font-size: 6px;
   z-index: -1;
 }
+.link_kayan {
+    color: #e7e4df;
+    transition: color 0.3s ease;
+}
 
+.link_kayan:hover {
+    color: #ff7900;
+}
+.bg-orange {
+  background-color: #ff7900;
+}
 .tf-field {
   position: relative;
 }

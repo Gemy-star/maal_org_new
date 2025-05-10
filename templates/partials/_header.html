@@ -1,72 +1,34 @@
-       <!-- Header -->
-       {% load static %}
-       <style>
-
-@media (min-width: 768px) {
-    .logo-header img {
-        width: 90px;
-    }
-}
-       </style>
-<header id="header" class="header-default header-style-2">
-    <div class="main-header line">
-        <div class="container-full px_15 lg-px_40">
-            <div class="row wrapper-header align-items-start">
-                <!-- Logo -->
-                <div class="col-xl-2 col-md-4 col-6 text-center">
-                    <a href="" class="logo-header">
-                        <img src="{% static 'images/logo/logo.png' %}" alt="logo" class="logo">
-                    </a>
-                </div>
-
-                <!-- Mobile Toggle Button -->
-                <div class="d-xl-none d-flex col-md-8 col-6 justify-content-end align-items-center">
-                    <button id="navToggleBtn" class="navbar-toggler" type="button" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon" style="margin-block: 1.8rem;font-size: 50px;}">☰</span>
-                    </button>
-                </div>
-
-                <!-- Nav Menu -->
-                <div class="col-xl-10 d-xl-block d-none" id="mainNavWrapper">
-                    <div class="wrapper-header d-flex justify-content-center align-items-center" style="direction: rtl;">
-                        <nav class="box-navigation text-center">
-                            <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30 flex-column flex-xl-row">
-                                <li class="menu-item"><a href="{% url 'home_page' %}" class="item-link"> الرئيسية</a></li>
-                                <li class="menu-item"><a href="{% url 'about_page' %}" class="item-link"> عن المؤسسة</a></li>
-                                <li class="menu-item"><a href="{% url 'contact_page' %}" class="item-link"> إتصل بنا </a></li>
-                                <li class="menu-item"><a href="{% url 'blogs_page' %}" class="item-link">أخبارنا</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+{% load static %}
+        <header id="header" class="header-default header-style-3 header-uppercase bg-black">
+            <div class="container-full px_15 lg-px_40">
+        <div class="row wrapper-header align-items-center">
+            <div class="col-md-4 col-3 tf-lg-hidden">
+                <a href="#mobileMenu" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="btn-mobile text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="16" viewBox="0 0 24 16" fill="none">
+                        <path d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z" fill="currentColor"></path>
+                    </svg>
+                </a>
             </div>
-
-            <!-- Mobile Nav -->
-            <div class="d-xl-none" id="mobileNav" style="display: none;">
-                <nav class="box-navigation text-center">
-                    <ul class="box-nav-ul d-flex flex-column align-items-center gap-15">
-                        <li class="menu-item"><a href="{% url 'home_page' %}" class="item-link"> الرئيسية</a></li>
-                        <li class="menu-item"><a href="{% url 'home_page' %}" class="item-link"> عن المؤسسة</a></li>
-                        <li class="menu-item"><a href="{% url 'home_page' %}" class="item-link"> إتصل بنا </a></li>
-                        <li class="menu-item"><a href="{% url 'home_page' %}" class="item-link">أخبارنا</a></li>
-                    </ul>
-                </nav>
+            <!-- Logo -->
+            <div class="col-xl-2 col-md-4 col-6 text-center">
+                <a href="" class="logo-header">
+                    <img src="{% static 'images/logo/logo.png' %}" alt="logo" class="logo">
+                </a>
+            </div>
+            <!-- Nav Menu -->
+            <div class="col-xl-10 d-xl-block d-none" id="mainNavWrapper">
+                <div class="wrapper-header d-flex justify-content-center align-items-center" style="direction: rtl">
+                    <nav class="box-navigation text-center">
+                        <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30 flex-column flex-xl-row">
+                            <li class="menu-item"><a href="{% url 'home_page' %}" class="item-link link_kayan ">الرئيسية</a></li>
+                            <li class="menu-item"><a href="{% url 'about_page' %}" class="item-link link_kayan ">عن كيان</a></li>
+                            <li class="menu-item"><a href="{% url 'contact_page' %}" class="item-link link_kayan ">إتصل بنا</a></li>
+                            <li class="menu-item"><a href="{% url 'blogs_page' %}" class="item-link link_kayan ">أخبارنا</a></li>
+                            <li class="menu-item"><a href="{% url 'project_list' %}" class="item-link link_kayan ">أعمالنا</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
 </header>
-
-        <!-- /Header -->
-
-       <script>
-    const navToggleBtn = document.getElementById('navToggleBtn');
-    const mobileNav = document.getElementById('mobileNav');
-
-    navToggleBtn.addEventListener('click', () => {
-        if (mobileNav.style.display === 'none' || mobileNav.style.display === '') {
-            mobileNav.style.display = 'block';
-        } else {
-            mobileNav.style.display = 'none';
-        }
-    });
-</script>

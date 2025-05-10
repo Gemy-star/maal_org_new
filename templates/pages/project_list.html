@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
         <!-- page-title -->
         <div class="tf-page-title bg-black">
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
-                        <div class="heading text-center link_kayan">عن كيان</div>
+                        <div class="heading text-center link_kayan">أعمالنا</div>
                         <ul class="breadcrumbs d-flex align-items-center justify-content-center">
                             <li>
                                 <a class="link_kayan" href="{% url 'home_page' %}">الرئيسية</a>
@@ -15,7 +16,7 @@
                                 <i class="icon-arrow-right"></i>
                             </li>
                             <li class="link_kayan">
-                                 عن المؤسسة
+                                أعمالنا
                             </li>
                         </ul>
                     </div>
@@ -24,21 +25,6 @@
         </div>
         <!-- /page-title -->
 
-        <!-- blog-list -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="blog-list-main">
-                        {% include 'partials/home/_info.html' %}
-                    </div>
-                </div>
-             <div class="col-12">
-                    <div class="blog-list-main" style="direction: ltr;">
-                        {% include 'partials/home/_projects.html' with view_more=False %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /blog-list -->
-
-{% endblock content %}
+{% include 'partials/home/_projects.html' with view_more=False %}
+{% include 'partials/home/_contact.html' %}
+{% endblock %}

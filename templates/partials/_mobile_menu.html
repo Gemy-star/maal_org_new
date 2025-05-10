@@ -1,0 +1,24 @@
+<div class="offcanvas offcanvas-start canvas-mb bg_aristo" id="mobileMenu" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
+    <span class="icon-close icon-close-popup text_aristo" data-bs-dismiss="offcanvas" aria-label="Close" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};"></span>
+    <div class="mb-canvas-content">
+        <div class="mb-body">
+            <ul class="nav-ul-mb" id="wrapper-menu-navigation">
+                <li class="nav-mb-item"><a href="{% url 'home_page' %}" class="item-link ">الرئيسية</a></li>
+                <li class="nav-mb-item"><a href="{% url 'about_page' %}" class="item-link ">عن كيان</a></li>
+                <li class="nav-mb-item"><a href="{% url 'contact_page' %}" class="item-link ">إتصل بنا</a></li>
+                <li class="nav-mb-item"><a href="{% url 'blogs_page' %}" class="item-link ">أخبارنا</a></li>
+                <li class="nav-mb-item"><a href="{% url 'project_list' %}" class="item-link ">أعمالنا</a></li>
+            </ul>
+            <div class="mb-other-content">
+                <div class="mb-notice">
+                    <a href="{% url 'contact_page' %}" class="text-need">تحتاج مساعدة</a>
+                </div>
+                <ul class="mb-info">
+                    <li class="text-black"><strong>اسم المؤسسة:</strong> Aristo Design</li>
+                    <li class="text-black"><strong>المقر:</strong> القاهرة، مصر</li>
+                    <li class="text-black"><strong>البريد الإلكتروني:</strong> info@aristo-design.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

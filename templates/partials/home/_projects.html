@@ -1,41 +1,80 @@
-        <!-- Categories -->
-        <section class="flat-spacing-4 flat-categorie">
-            <div class="container">
-               <div class="flat-title-v2">
-                    <div class="box-sw-navigation">
-                        <div class="nav-sw nav-next-slider nav-next-collection"><span class="icon icon-arrow-left"></span></div>
-                        <div class="nav-sw nav-prev-slider nav-prev-collection"><span class="icon icon-arrow-right"></span></div>
-                    </div>
-                    <span class="text-3 fw-7 text-uppercase title wow fadeInUp" data-wow-delay="0s">أعمالنا</span>
-               </div>
-               <div class="row">
-                    <div class="col-xl-9 col-lg-8 col-md-8">
-                        <div class="swiper tf-sw-collection" data-preview="3" data-tablet="2" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-loop="false" data-auto-play="false">
-                            <div class="swiper-wrapper">
-                                {% for proj in projects %}
-                                <div class="swiper-slide" lazy="true">
-                                    <div class="collection-item style-left hover-img">
-                                        <div class="collection-inner">
-                                            <a href="{{ proj.website }}" class="collection-image img-style">
-                                                <img class="lazyload" data-src="{{ proj.logo.url }}" src="{{ proj.logo.url }}" alt="collection-img">
-                                            </a>
-                                            <div class="collection-content">
-                                                <a href="{{ proj.website }}" class="tf-btn collection-title hover-icon fs-15"><span>{{ proj.name }}</span><i class="icon icon-arrow1-top-left"></i></a>
-                                            </div>
-                                        </div>
+{% load static %}
+<style>
+    .tf-sw-our-projects .swiper-slide {
+        width: 450px !important;   /* adjust width */
+        height: 330px !important;  /* adjust height */
+    }
+
+    .tf-sw-our-projects .collection-item {
+        height: 100%;
+    }
+
+    .tf-sw-our-projects .collection-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+<!-- Aristo Design - Projects Section -->
+<section class="flat-spacing-4 flat-categories pb_2 bg_e7e4df">
+    <div class="container">
+        <div class="flat-title-v2">
+            <div class="box-sw-navigation">
+                <div class="nav-sw nav-next-slider nav-next-collection">
+                    <span class="icon icon-arrow-left"></span>
+                </div>
+                <div class="nav-sw nav-prev-slider nav-prev-collection">
+                    <span class="icon icon-arrow-right"></span>
+                </div>
+            </div>
+            <span class="text-3 fw-7 text-uppercase title wow fadeInUp " data-wow-delay="0s">
+                أعمالنا
+            </span>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 col-md-8">
+                <div class="swiper tf-sw-collection tf-sw-our-projects"
+                     data-preview="3" data-tablet="2" data-mobile="2"
+                     data-space-lg="30" data-space-md="30" data-space="15"
+                     data-loop="false" data-auto-play="false">
+                    <div class="swiper-wrapper">
+                        {% for proj in projects %}
+                        <div class="swiper-slide " lazy="true" >
+                            <div class="collection-item style-left hover-img">
+                                <div class="collection-inner">
+                                    <a href="{% url 'project_detail' proj.pk %}" class="collection-image img-style">
+                                        {% with proj.images.first as img %}
+                                            {% if img %}
+                                                <img class="lazyload" data-src="{{ img.image.url }}" src="{{ img.image.url }}" alt="صورة المشروع">
+                                            {% else %}
+                                                <img src="{% static 'images/placeholder.png' %}" alt="لا توجد صورة">
+                                            {% endif %}
+                                        {% endwith %}
+                                    </a>
+                                    <div class="collection-content">
+                                        <a href="{% url 'project_detail' proj.pk %}" class="tf-btn collection-title hover-icon fs-15 bg-dark">
+                                            <span class="">{{ proj.title }}</span>
+                                            <i class="icon icon-arrow1-top-left "></i>
+                                        </a>
                                     </div>
                                 </div>
-                         {% endfor %}
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4">
-                        <div class="discovery-new-item">
-                            <h5>إكتشف جميع مشاريعنا</h5>
-                            <a href="shop-collection-list.html"><i class="icon-arrow1-top-left"></i></a>
-                        </div>
-                    </div>
-               </div>
+                </div>
             </div>
-        </section>
-        <!-- /Categories -->
+        {% if view_more %}
+                    <div class="col-xl-3 col-lg-4 col-md-4">
+                <div class="discovery-new-item text-end">
+                    <h5 class="">إكتشف جميع مشاريعنا</h5>
+                    <a class="" href="{% url 'project_list' %}">
+                        <i class="icon-arrow1-top-left "></i>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</section>
